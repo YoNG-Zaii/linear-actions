@@ -1,0 +1,34 @@
+name: 'Linear issue'
+description: 'Extract issue ID from the branch name and validate PR title based on Linear'
+inputs:
+  token:
+    description: 'GitHub token'
+    required: true
+    default: ''
+  linear_id_prefix:
+    description: 'Linear issue ID prefix'
+    required: false
+    default: ''
+  linear_auth_type:
+    description: 'Linear authentication type'
+    required: false
+    default: ''
+  linear_auth_key:
+    description: 'Linear authentication key'
+    required: false
+    default: ''
+  label_name:
+    description: 'Label for non-aligned PR title'
+    required: false
+    default: 'bad PR title'
+  label_description:
+    description: 'Label description for non-aligned PR title'
+    required: false
+    default: 'PR title needs formatting'
+  label_color:
+    description: 'Label color for non-aligned PR title'
+    required: false
+    default: 'D4C5F9'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
